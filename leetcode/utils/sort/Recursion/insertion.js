@@ -16,7 +16,7 @@ export function insertionSort(arr) {
       if (arr[j + 1] < arr[j]) {
         //swap
         ;[arr[j + 1], arr[j]] = [arr[j], arr[j + 1]]
-      }
+      } else break
     }
   }
   return arr

@@ -1,3 +1,3 @@
-import {combinationSum} from '../leetcode/arithemtic/h_combinationSum.js'
+import {dailyTemperatures} from '../leetcode/arithemtic/m_warmTemperature.js'
 
-console.log(combinationSum([2, 3, 6, 7], 7))
+console.log(dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]))

@@ -2,7 +2,7 @@ function TrieNode() {
   this.children = new Map()
   this.isWord = false
 }
-function Trie() {
+export function Trie() {
   this.tree = new TrieNode()
   this.insert = function (word) {
     let cur = this.tree
@@ -32,10 +32,10 @@ function Trie() {
   }
 }
 const trie = new Trie()
-trie.insert('apple')
-trie.search('apple') // return True
-trie.search('app') // return False
-trie.startsWith('app') // return True
-trie.insert('app')
-trie.search('app')
-console.log(trie.tree)
+// trie.insert('apple')
+// trie.search('apple') // return True
+// trie.search('app') // return False
+// trie.startsWith('app') // return True
+// trie.insert('app')
+// trie.search('app')
+// console.log(trie.tree)
