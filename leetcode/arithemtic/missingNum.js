@@ -7,9 +7,8 @@
 function missingNumber(nums) {
   let sum = 0
   const total = (nums.length * (nums.length + 1)) / 2
-  for (const n of nums) {
-    sum += n
-  }
+  for (const n of nums) sum += n
+
   return total - sum
 }
 console.log(missingNumber([0, 3, 2]))

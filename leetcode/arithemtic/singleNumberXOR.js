@@ -1,4 +1,4 @@
-/**
+/** https://leetcode.com/problems/single-number/
  * @param {number[]} list
  * @return {number}
  * A^B = B^A
@@ -9,4 +9,4 @@
 function singleNumber(list) {
   return list.reduce((acc, curr) => acc ^ curr)
 }
-console.log(singleNumber([5, 1, 3, 1, 4, 1, 1]))
+console.log(singleNumber([4, 1, 4, 1, 5, 1, 1]))

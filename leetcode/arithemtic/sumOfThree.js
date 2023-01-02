@@ -1,3 +1,5 @@
+/*
+ */
 const sumOfThree = function (num) {
   const pivot = num / 3
   if (num % 3 == 0) {

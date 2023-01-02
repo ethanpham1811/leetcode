@@ -3,7 +3,7 @@ function majorityElement1(list) {
   return list.sort((a, b) => a - b)[list.length / 2]
 }
 
-/* Linear time complexity
+/* Linear time complexity Boyer Moore
 - loop through list
 - set result = first
 - increase count if find duplicate, decrease count if not duplicate
