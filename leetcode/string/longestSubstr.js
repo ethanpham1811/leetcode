@@ -15,6 +15,7 @@ const longestContinuousSubstring = function (s) {
       //check if next letter is valid, increase count
       while (i + counter < s.length && s[i + counter].charCodeAt() - counter == curCode) counter++
       res = Math.max(res, counter)
+      i += counter - 1
     }
   }
   return res

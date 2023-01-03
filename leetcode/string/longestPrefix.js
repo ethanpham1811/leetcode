@@ -1,4 +1,4 @@
-/* binary search 2: 
+/* binary search 2: Logn
 - set first string (pivot)
 - find median, set low high
 - check others.includes(left) (recursive fn return true false)
@@ -33,29 +33,29 @@ console.log(longestCommonPrefix(['flower', 'flour', 'flon']))
 - pass -> check right (recursive fn return substring)
 - fail -> check left (recursive fn return substring)
 */
-function longestCommonPrefix(list) {
-  if (list.length == 0) return ''
-  if (list.length == 1) return list[0]
-  return split(list.splice(1), list[0])
+function longestCommonPrefix(array) {
+  if (array.length == 0) return ''
+  if (array.length == 1) return array[0]
+  return split(array.splice(1), array[0])
 }
 
-function split(list, prefix) {
+function split(array, prefix) {
   if (prefix.length < 2) return ''
   const median = Math.ceil(prefix.length / 2)
   const left = prefix.substring(0, median)
   const right = prefix.substring(median, prefix.length)
 
-  for (let word of list) {
+  for (let word of array) {
     if (!word.includes(left)) {
-      return split(list, left)
+      return split(array, left)
     }
   }
-  return left + split(list, right)
+  return left + split(array, right)
 }
 
 console.log(longestCommonPrefix(['flower', 'f33ur', 'flon']))
 
-/* horizontal approach: 
+/* horizontal approach: O(m.n)
 - set first as prefix
 - check others.includes(prefix)
 - fail -> substring prefix until includes(prefix)
@@ -74,7 +74,7 @@ function longestCommonPrefix(strs) {
 
 console.log(longestCommonPrefix(['flower', 'fliur', 'flon']))
 
-/* vertical approach:
+/* vertical approach: O(m.n)
 - loop through letters of first (pivot)
 - check others[letterIndex]
 - fail -> return pivot.substr(0, letterIndex)
@@ -90,36 +90,3 @@ function longestCommonPrefix2(strs) {
   return strs[0]
 }
 console.log(longestCommonPrefix2(['flower', 'flour', 'flin']))
-
-/* my approach:
-- loop through letters of first (pivot)
-- check others[letterIndex]
-- pass -> push letter to prefix []
-- fail ->  return prefix
-*/
-function longestCommonPrefix(list) {
-  if (list.length == 0) return
-  if (list.length == 1) return list[0]
-
-  const prefix = []
-  let stop = false
-
-  for (let i = 0; i < list[0].length; i++) {
-    for (let word of list.splice(1)) {
-      if (!word[i] || word[i] !== list[0][i]) {
-        stop = true
-        break
-      }
-    }
-    if (stop) {
-      return prefix.join('')
-    } else {
-      prefix.push(list[0][i])
-    }
-  }
-  return prefix.join('')
-}
-
-console.time()
-console.log(longestCommonPrefix(['dlo', 'dliaw', 'dlght']))
-console.timeEnd()

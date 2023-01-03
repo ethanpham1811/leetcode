@@ -14,6 +14,7 @@ function fib(nth) {
   return res
 }
 /* https://leetcode.com/problems/decode-ways/
+O(n) iteration solution
  */
 
 const numDecodings = function (s) {

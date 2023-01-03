@@ -1,3 +1,32 @@
+/* Best solution
+convert all awkward num to sum like sequence of numbers
+*/
+function romantoInt1(str) {
+  const translations = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000
+  }
+  let number = 0
+  str = str.replace('IV', 'IIII').replace('IX', 'VIIII')
+  str = str.replace('XL', 'XXXX').replace('XC', 'LXXXX')
+  str = str.replace('CD', 'CCCC').replace('CM', 'DCCCC')
+  for (let char of str) number += translations[char]
+  return number
+}
+console.log(romantoInt1('XCL'))
+
+/*
+- loop through the string
+- check current letter with map
+- return value+skip from map
+- continue if skip > 0
+*/
+
 const map = {
   I: {
     I: [1, 0],
@@ -36,15 +65,10 @@ const map = {
 const chars = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
 
 const romantoInt = (x, latinMap, allowChar) => {
-  let stop = false
   x.split('').forEach((el) => {
-    if (!allowChar.includes(el)) {
-      stop = true
-      return
-    }
+    if (!allowChar.includes(el)) return
   })
 
-  if (stop) return
   let int = 0
   let skip = 0
   const clone = x
@@ -75,10 +99,3 @@ const romantoInt = (x, latinMap, allowChar) => {
   return int
 }
 console.log(romantoInt('XCL', map, chars))
-
-/*
-- loop through the string
-- check current letter with map
-- return value+skip from map
-- continue if skip > 0
-*/

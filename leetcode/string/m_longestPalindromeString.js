@@ -1,4 +1,8 @@
-/* same as palinedrome sub string except for returning the longest one */
+/* https://leetcode.com/problems/longest-palindromic-substring/
+same as palinedrome sub string except for returning the longest one 
+- O(n2)
+- with every letter, try expand outward (left-1, right+1) and update curMax
+*/
 const longestPalindrome = function (str) {
   let max = ''
   for (let i = 0; i < str.length; i++) {
@@ -12,11 +16,10 @@ const longestPalindrome = function (str) {
 const countParli = function (s, l, r) {
   let max = ''
   while (l >= 0 && r < s.length && s[l] === s[r]) {
-    const str = s.slice(l, r + 1)
-    max = str.length > max.length ? str : max.length
+    max = s.slice(l, r + 1)
     l--
     r++
   }
   return max
 }
-console.log(longestPalindrome('cbbd'))
+console.log(longestPalindrome('aacbbc'))

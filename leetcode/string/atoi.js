@@ -8,12 +8,9 @@ const myAtoi = function (s) {
   console.log(hi)
 
   if (s.match(regex)) {
-    console.log(s.match(regex))
     const res = parseInt(s.match(regex)[0].trim())
-    console.log(res)
-    if (res < lo || res > hi) {
-      return res < lo ? lo : hi
-    }
+    if (res < lo || res > hi) return res < lo ? lo : hi
+
     return res
   }
 
