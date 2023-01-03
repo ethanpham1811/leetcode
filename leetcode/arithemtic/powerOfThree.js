@@ -8,7 +8,8 @@ function isPowerOfThree(n) {
 
   return n === 1
 }
-console.log(isPowerOfThree(15))
+const a = 45
+console.log(a.toString(3))
 
 /* 
 - use toString(3) (base3 number)
@@ -16,7 +17,7 @@ console.log(isPowerOfThree(15))
  */
 function isPowerOfThree(n) {
   const base3 = n.toString(3)
-  return base3.length !== '1'
+  return base3.length !== 1
     ? base3[0] === '1' &&
         base3
           .split('')

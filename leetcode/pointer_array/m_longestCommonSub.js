@@ -1,3 +1,4 @@
+// FIXME:
 /* Bottom up brute force DP solution
 2d matrix: Iteration O(n*m)
   | a | a | a | b |
@@ -28,8 +29,9 @@ let longestCommonSubsequence = function (first, second) {
   }
   return dp[0]
 }
-console.log(longestCommonSubsequence('bb', 'b'))
+// console.log(longestCommonSubsequence('bb', 'b'))
 // console.log(longestCommonSubsequence('aaab', 'xxbaaa'))
+console.log(longestCommonSubsequence('abcde', 'ace'))
 
 /* my recursion approach applied above technique */
 let longestCommonSubsequence2 = function (first, second) {

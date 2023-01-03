@@ -1,4 +1,5 @@
-/* O(3n) + space O(2n)
+// FIXME:
+/* O(3n) + space O(2n) [1, 2, 3, 4]
 - 1 loop for head (store product from left) 
 - 1 loop for tail (store product from right)
 - 1 loop for res [(left-1)*(right+1)...]

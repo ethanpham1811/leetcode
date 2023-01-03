@@ -1,4 +1,7 @@
-/* O(n) iteration solution
+/*https://leetcode.com/problems/maximum-subarray/
+Find conse subarray with largest sum, returrn the sum
+
+ O(n) iteration solution
 - add curr num to sum
 - discard the negative sum from the left
  */
@@ -16,7 +19,7 @@ export const maxSubArray1 = function (nums) {
 }
 console.log(maxSubArray1([-2, 1, -9, 4, -1, 2, 1, -5, 4]))
 
-/* n2 approach (not finished)
+/* n2 approach (not finished) brute force
 - 2 loops
 - count the sum by adding new val to prev sum
  */
