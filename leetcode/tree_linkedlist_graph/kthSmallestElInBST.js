@@ -1,4 +1,4 @@
-import {toBinaryTree, toBST} from '../utils/binaryTree.js'
+import {toBST} from '../utils/binaryTree.js'
 
 /* https://leetcode.com/problems/kth-smallest-element-in-a-bst
 Using Stack

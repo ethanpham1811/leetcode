@@ -1,6 +1,7 @@
 import {toBinaryTree} from '../utils/binaryTree.js'
 
 /* preorder DFS 
+split the binary by Level of the tree
 use counter to track level
 */
 const levelOrder = function (root) {

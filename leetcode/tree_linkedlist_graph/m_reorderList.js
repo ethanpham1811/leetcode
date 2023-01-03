@@ -5,9 +5,9 @@ export function linkedList(arr) {
       }, 0)
     : {val: 0, next: null}
 }
-console.log(reorderList(linkedList([1])))
+console.log(reorderList(linkedList([1, 2, 3, 4, 5])))
 
-/* 
+/* https://leetcode.com/problems/reorder-list/description/
 O(n)
 - split into 2 list by slow fast runner
 - reverse second list
@@ -29,14 +29,13 @@ export function reorderList(head) {
 
   second = reverseList(second)
   while (second) {
-    const firstTmp = first.next //classic technique to move ahead first = first.next
-    const secondTmp = second.next //classic technique to move ahead first = first.next
+    const firstTmp = first.next
+    const secondTmp = second.next
     /* technique to inject 1 to another */
-    first.next = second
-    second.next = firstTmp
+    ;[first.next, second.next] = [second, first.next]
     /* ---end--- */
-    second = secondTmp //classic technique to move ahead first = first.next
-    first = firstTmp //classic technique to move ahead first = first.next
+    second = secondTmp
+    first = firstTmp
   }
   return head
 }

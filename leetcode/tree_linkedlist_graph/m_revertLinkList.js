@@ -13,13 +13,11 @@ Iteration solution (same as recursive)
 */
 let reverseList = (head) => {
   let cur = head
-  let prev = null,
-    next
+  let prev = null
   while (cur) {
-    next = cur.next
-    cur.next = prev
-    prev = cur
-    cur = next
+    const temp = cur
+    ;[cur, temp.next] = [cur.next, prev]
+    prev = temp
   }
   return prev
 }
@@ -39,5 +37,18 @@ let recur = (cur, prev) => {
 }
 let reverseList = (head) => {
   return recur(head, null)
+}
+console.log(reverseList(ll))
+
+let reverseList = (head) => {
+  let cur = head
+  let prev = null
+  while (cur) {
+    const temp = cur
+    cur = cur.next
+    temp.next = prev
+    prev = temp
+  }
+  return prev
 }
 console.log(reverseList(ll))

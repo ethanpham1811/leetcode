@@ -20,12 +20,12 @@ function removeNthFromEnd(head, n) {
   while (runner.next != null) {
     runner = runner.next
     p = p.next
-    console.log(p, runner, newHead)
   }
   p.next = p.next.next
   return newHead.next
 }
 console.log(removeNthFromEnd(list, 4))
+
 /* my approach
 - recursive to rebuild listNode
 */
@@ -36,11 +36,9 @@ function removeNthFromEnd(origin, n) {
     tailIndex++
     last = last.next
   }
-  if (n > tailIndex) {
-    return null
-  } else if (n === tailIndex) {
-    return origin.next
-  } else {
+  if (n > tailIndex) return null
+  else if (n === tailIndex) return origin.next
+  else {
     const res = rebuild(origin, 1, tailIndex - n)
     return new ListNode(res[0], res[1])
   }

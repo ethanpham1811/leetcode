@@ -21,7 +21,6 @@ export function Trie() {
   this.search = function (word) {
     const res = {found: false}
     this.dfs(res, word, 0, word.length - 1, this.tree)
-    console.log(res.found)
     return res.found
   }
   // DFS
@@ -31,9 +30,7 @@ export function Trie() {
       res.found = true
       return
     }
-    if ((!node.children.has(l) && l !== '.') || i > size) {
-      return
-    }
+    if ((!node.children.has(l) && l !== '.') || i > size) return
 
     if (l === '.') {
       for (const child of node.children.values()) {

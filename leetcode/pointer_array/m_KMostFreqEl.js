@@ -20,4 +20,4 @@ let topKFrequent = function (nums, k) {
   }
   return res.slice(0, k)
 }
-console.log(topKFrequent([1], 1))
+console.log(topKFrequent([1, 1, 1, 2, 2, 3], 2))

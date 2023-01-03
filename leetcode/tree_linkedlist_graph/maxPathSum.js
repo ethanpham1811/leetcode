@@ -1,5 +1,7 @@
 import {toBinaryTree} from '../utils/binaryTree.js'
 
+/* https://leetcode.com/problems/binary-tree-maximum-path-sum/
+ */
 let maxPathSum = function (root) {
   const res = {val: root.val}
   const max = dfs(res, root)
@@ -14,4 +16,5 @@ function dfs(res, node) {
   res.val = Math.max(res.val, sumWidth, node.val)
   return Math.max(maxLeft + node.val, maxRight + node.val, node.val)
 }
-console.log(maxPathSum(toBinaryTree([1, 2, 1, 10, 10, 1, 1])))
+console.log(maxPathSum(toBinaryTree([-10, 9, 20, null, null, 15, 7])))
+// console.log(maxPathSum(toBinaryTree([1, 2, 1, 10, 10, 1, 1])))

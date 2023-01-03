@@ -10,7 +10,6 @@ const canFinish = function (numCourses, prerequisites) {
   const res = []
   for (const [key, val] of prerequisites) preMap[key] = preMap[key] ? [...preMap[key], val] : [val]
   const isVisited = new Set()
-  console.log(preMap)
   for (let i = 0; i < numCourses; i++) {
     const com = new Set()
     dfs(preMap, i, isVisited, com, res)
@@ -32,4 +31,12 @@ const dfs = function (preMap, cur, isVisited, com, res) {
   com.add(cur)
   return true
 }
-console.log(canFinish(2, [[1, 0]]))
+console.log(
+  canFinish(5, [
+    [0, 3],
+    [0, 4],
+    [2, 0],
+    [2, 1],
+    [3, 4]
+  ])
+)

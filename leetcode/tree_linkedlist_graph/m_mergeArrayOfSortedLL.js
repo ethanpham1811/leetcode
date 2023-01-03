@@ -1,4 +1,4 @@
-import {linkedList, linkedListToArray} from '../utils/linkedList.js'
+import {linkedListToArray} from '../utils/linkedList.js'
 import {mergeTwoLists} from './mergeSortedLinkedList.js'
 
 /* O(n.logk.n/2) k: total list member, n: total nodes in a ll

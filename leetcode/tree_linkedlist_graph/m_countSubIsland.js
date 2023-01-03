@@ -28,6 +28,7 @@ function countSubIslands(grid1, grid2) {
       }
     }
   }
+  // count island grid 2
   let c = 0
   for (let i = 0; i < m; i++) {
     for (let j = 0; j < n; j++) {

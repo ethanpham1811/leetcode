@@ -1,16 +1,18 @@
 import {linkedList} from '../utils/linkedList.js'
 import {mergeTwoLists} from './mergeSortedLinkedList.js'
 
-/* https://leetcode.com/problems/sort-list/ */
+/* https://leetcode.com/problems/sort-list/ 
+2
+*/
 const sortList = function (head) {
   if (!head.next) return head
 
-  const [left, right] = findMid(head)
+  const [left, right] = split(head)
   let sortedLeft = sortList(left)
   let sortedRight = sortList(right)
   return mergeTwoLists(sortedLeft, sortedRight)
 }
-function findMid(head) {
+function split(head) {
   let slow = head
   let fast = head.next
 

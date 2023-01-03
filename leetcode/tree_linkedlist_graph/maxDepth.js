@@ -1,4 +1,4 @@
-import {toBinaryTree, TreeNode} from '../utils/binaryTree.js'
+import {toBinaryTree} from '../utils/binaryTree.js'
 
 /* https://leetcode.com/problems/maximum-depth-of-binary-tree/ 
   - return the count directly from dfs
