@@ -43,33 +43,3 @@ const maxSubArray2 = function (nums) {
   }
   return max.val
 }
-// console.log(maxSubArray2([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
-
-/* sliding window: n3
-- move right til find better res
-- move left till right, rollback to where better res is
-*/
-const maxSubArray3 = function (nums) {
-  let max = {val: -Infinity, l: 0, r: 0}
-  let l = 0
-
-  for (let r = 0; r < nums.length; r++) {
-    let tempL = l
-    while (tempL <= r) {
-      const tempSum = getSum(nums, tempL, r)
-      if (tempSum > max.val) {
-        l = tempSum > max.val ? tempL : l
-        ;(max.val = tempSum), (max.l = l), (max.r = r)
-      }
-
-      tempL++
-    }
-  }
-  return getSum(nums, max.l, max.r)
-}
-
-/* utils fn */
-function getSum(array, l, r) {
-  return array.slice(l, r + 1).reduce((acc, cur) => acc + cur)
-}
-// console.log(maxSubArray3([-2, 1, -3, 4, -1, 2, 1, -5, 4]))

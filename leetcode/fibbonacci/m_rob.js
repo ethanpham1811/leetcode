@@ -1,4 +1,5 @@
-/* Iteration solution O(n) 
+/* https://leetcode.com/problems/house-robber/
+ Iteration solution O(n) 
 - two sum variables rob1 & rob2
 0 2
 2 7
@@ -18,26 +19,26 @@ export let rob2 = function (nums) {
     const temp = Math.max(rob1 + n, rob2)
     rob1 = rob2
     rob2 = temp
-    console.log('rob1: ' + rob1, 'rob2: ' + rob2)
+    // console.log('rob1: ' + rob1, 'rob2: ' + rob2)
   }
   return rob2
 }
 console.log(rob2([2, 7, 9, 3, 1, 5, 6, 1, 2]))
 
-/* Recursion solution O(2^n) 
+/* Recursion solution O(2^n) Bottom up DFS
 - sum nth = Math.max(sum(nth+2), sum(nth+3))
 */
 
-let recur = function (nums, nth) {
+let dfs = function (nums, nth) {
   if (nth >= nums.length) return 0
 
-  const first = recur(nums, nth + 2)
-  const second = recur(nums, nth + 3)
+  const first = dfs(nums, nth + 2)
+  const second = dfs(nums, nth + 3)
 
   return nums[nth] + (first > second ? first : second)
 }
 let rob = function (nums) {
-  return Math.max(recur(nums, 0), recur(nums, 1))
+  return Math.max(dfs(nums, 0), dfs(nums, 1))
 }
 // console.log(rob([2, 7, 9, 3, 1, 5, 6, 1, 2]))
 

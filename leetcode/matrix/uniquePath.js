@@ -3,7 +3,7 @@
 10  6   3   1
 4   3   2   1
 1   1   1   0
-
+posMap is for DP
 nth tile = nth down tile + nth right tile
 */
 const uniquePaths = function (m, n) {

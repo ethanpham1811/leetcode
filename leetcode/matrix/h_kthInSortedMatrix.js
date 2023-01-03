@@ -1,11 +1,15 @@
 const matrix = [
   [1, 5, 9],
-  [8, 11, 13],
+  [6, 11, 13],
   [7, 13, 15]
 ]
 /* https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
   push el to MaxHeap, up to k
-  O(m.n.log)
+  O(m.n.logk)
+*/
+
+/* Distinct better approach (2 Pointers) (Guess the num first, then prove if its the right num)
+Time: nlogn
   - Use left, right pointers, find mid value
   - each iteration: count how many el <= mid
   - if count >= k: right--

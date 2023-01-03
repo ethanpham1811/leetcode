@@ -1,5 +1,5 @@
 /* https://leetcode.com/problems/coin-change
-Bottom up noduplication (DP) O(n*m)
+Bottom up no duplication (DP) O(n*m)
 - instead of find sub to match 7, find sub to match 0..1..2....7 (find Math.min)
 - use prev target values to find subsequent target values (0-1-2...7)
 

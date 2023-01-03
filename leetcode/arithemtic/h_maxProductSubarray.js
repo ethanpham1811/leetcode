@@ -1,4 +1,5 @@
-/* their approach O(n)  HARD!!!
+/* https://leetcode.com/problems/maximum-product-subarray/
+their approach O(n)  HARD!!!
 - maintain 2 number [min, max]
 - multiply these 2 with the current number on every iteration, update [min,max]
 - return the max
@@ -23,10 +24,10 @@ export const maxProduct = function (nums) {
 console.log(maxProduct([2, 3, -2, 4]))
 
 /* 
-calculat the product of the whole array
+calculate the product of the whole array
 - move left till minus sign (while divide the product by the left number)
 - move right till minus sign (while divide the product by the right number)
-- get ma of these two num
+- get max of these two num
  */
 export const maxProduct = function (nums) {
   if (nums.length === 1) return nums[0]
@@ -49,7 +50,7 @@ export const maxProduct = function (nums) {
   }
   return maxProduct
 }
-console.log(maxProduct([0, 2]))
+console.log(maxProduct([2, 3, -2, 4]))
 
 //-1-1
 //-2,2

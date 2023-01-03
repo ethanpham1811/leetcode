@@ -2,9 +2,9 @@ import {isAnaGram} from './anagram.js'
 /* 
   Hash map
   - loop through every word
-  - convert the word (1000100001...)(26 length Array) to get Key for hashmap
+  - convert the word (1-0-0-0-1-0-0-0-0-1...)(26 length Array) to get Key for hashmap
   - check if the word is the key anagram (by compare the key with converted word)
-  - O(n*n*26)
+  - Time: O(n*m), space O(26)
 */
 export const groupAnagrams = (list) => {
   const map = new Map()
@@ -16,6 +16,7 @@ export const groupAnagrams = (list) => {
       map.set(key, [pivot])
     }
   }
+  console.log(map)
   return Array.from(map.values())
 }
 const convertToMapKey = (word) => {
@@ -25,8 +26,10 @@ const convertToMapKey = (word) => {
   }
   return key.join('-')
 }
-console.log(groupAnagrams(['bdddddddddd', 'bbbbbbbbbbc']))
+console.log(groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat']))
+// console.log(groupAnagrams(['bdddddddddd', 'bbbbbbbbbbc']))
 
+import {isAnaGram} from './anagram.js'
 /* 
   brute force:
   - loop through every word (i)

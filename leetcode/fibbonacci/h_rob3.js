@@ -1,11 +1,10 @@
 import {toBinaryTree} from '../utils/binaryTree.js'
 
-/* DFS O(n)
-Pattern for recursion binary tree:
+/* https://leetcode.com/problems/house-robber-iii/ 
+Pattern for recursion binary tree: DFS O(n) 
 function dfs(root) {
   left =dfs(root.left)
   right =dfs(root.right)
-
   return (sth base on left, right)
 }
 */

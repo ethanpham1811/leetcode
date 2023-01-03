@@ -7,7 +7,6 @@ function climbStairs(step) {
   let second = 1
   // let res = 1
   let index = 1
-
   while (step > index) {
     const temp = first + second
     second = first
@@ -20,7 +19,7 @@ function climbStairs(step) {
 console.log(climbStairs(7))
 
 /* 
-- binary solution
+- binary recursion solution
 - not ideal because of duplication
  */
 function climbStairs(step) {
