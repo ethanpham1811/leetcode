@@ -18,8 +18,9 @@ let divide = function (dividend, divisor) {
 
   return res === 0 ? 0 : res * sign
 }
-/* 
-Binary exponential approach:
+console.log(divide(170, 3))
+/*  greedy 
+Binary exponential approach: 
 - sum += sum (1 2 4 8 16 32 ...)
 - count the extra ...
  */
@@ -33,6 +34,8 @@ function divide(dividend, divisor) {
 
   if (ldivisor == 0) return Infinity
   if (ldividend == 0 || ldividend < ldivisor) return 0
+
+  //main
   let lans = ldivide(ldividend, ldivisor)
   let ans
   if (lans > hi) {

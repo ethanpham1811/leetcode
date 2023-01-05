@@ -2,10 +2,10 @@ import {toBST} from '../utils/binaryTree.js'
 
 /* https://leetcode.com/problems/kth-smallest-element-in-a-bst
 Using Stack
-[5, 3, 6, 2, 4, null, 7]
+[5, 3, 6, 2, 4, null, 1]
 Add stack in order: all left node -> right bottom to top
-pop left node -> repeat the process
--> 5, 3, 2, 4, 6, 7
+pop left node -> check if already match k -> no: add right node -> repeat the process
+-> 5, 3, 2, 4, 6, 1
 IS BUGGING
  */
 function kthSmallest(root, k) {
@@ -29,21 +29,21 @@ console.log(kthSmallest(toBST([3, 1, 4, null, 2], 1)))
 /* 
 just use inorder DFS to find 1st 2nd 3rd smallest
  */
+import {toBST} from '../utils/binaryTree.js'
 let kthSmallest = function (root, k) {
-  console.log(root)
-  return inorder(k, root, {val: null})
+  return dfs(k, root, {val: null})
 }
-function inorder(k, root, counter) {
-  if (!root) {
+function dfs(k, node, counter) {
+  if (!node) {
     if (!counter.val) counter.val = 0
     return null
   }
-  const resLeft = inorder(k, root.left, counter)
-  if (counter.val == k) return root.val
+  const resLeft = dfs(k, node.left, counter)
+  if (counter.val == k) return node.val
   counter.val !== null && counter.val++
 
-  const resRight = inorder(k, root.right, counter)
+  const resRight = dfs(k, node.right, counter)
   return resLeft || resRight
 }
 // console.log(kthSmallest(toBST([500, 30, 655, 23, 80, null, null, 9]), 3))
-console.log(kthSmallest(toBST([3, 1, 4, null, 2], 1)))
+console.log(kthSmallest(toBST([5, 3, 6, 2, 4, null, null, 1], 3)))

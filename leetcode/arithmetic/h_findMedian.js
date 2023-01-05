@@ -6,7 +6,7 @@ Add:
 - push to small heap (maxHeap)
 - if it > large heap (minHeap) switch side
 - if size is not abs equal > remove from one, add to another
-Find
+Find 
 - return small[0] & large[0] comparision
  */
 const MedianFinder = function () {

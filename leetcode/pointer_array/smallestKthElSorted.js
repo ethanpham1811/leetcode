@@ -1,4 +1,4 @@
-import {MinHeap} from '../utils/minHeapify.js'
+import {MinHeap} from '../utils/sort/Divide & conquer/minHeapify.js'
 
 const matrix = [
   [1, 5, 9],
@@ -13,7 +13,7 @@ const kthSmallest = function (matrix, k) {
     }
   }
   const res = []
-  while (heap.list.length != 1) res.push(heap.remove())
+  while (heap.list.length != 1) res.push(heap.shift())
   return res[k - 1]
 }
 console.log(kthSmallest(matrix, 8))

@@ -6,12 +6,15 @@ import {TreeNode} from '../utils/binaryTree.js'
   not finish, still bug
 */
 function buildTree(pre, ino) {
-  if (!pre || !ino) return null
+  if (pre.length == 0 || ino.length == 0) return null
   const root = pre[0]
-  const mid = ino.indexOf(root)
 
-  const left = buildTree(pre.slice(1, mid + 1), ino.slice(0, mid))
-  const right = buildTree(pre.slice(mid + 1), ino.slice(mid + 1))
+  const mid = ino.indexOf(root)
+  const preRightIndex = mid + 1
+  const inoRightIndex = mid + 1
+
+  const left = buildTree(pre.slice(1, preRightIndex), ino.slice(0, inoRightIndex - 1))
+  const right = buildTree(pre.slice(preRightIndex), ino.slice(inoRightIndex))
 
   return new TreeNode(root, left, right)
 }

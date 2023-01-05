@@ -1,4 +1,6 @@
 /* https://leetcode.com/problems/contains-duplicate-iii/
+FIXME:
+bucket
  */
 const containsNearbyAlmostDuplicate = function (nums, iD, vD) {
   if (vD < 0) return false

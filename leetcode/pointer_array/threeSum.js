@@ -1,34 +1,27 @@
-/* 
-  combine with two sum
+/* https://leetcode.com/problems/3sum/
+- sort the array
+- loop through the array, skip duplicates (check cur != prev)
+- for every num in the array: ex: 3 + ? + ? = 0 -> find ? ? from twoSum([...], -3)
 */
 const threeSum = function (nums) {
   const sorted = nums.sort((a, b) => a - b)
-  // console.log('sorted: ' + sorted)
   const res = []
   for (let i = 0; i < sorted.length; i++) {
     if (i > 0 && sorted[i] === sorted[i - 1]) continue
-    // console.log('curr ' + sorted[i])
 
     let left = i + 1
     let right = sorted.length - 1
     let sum
+    // two sum
     while (left < right) {
-      // console.log('left: ' + left, 'right: ' + right)
       sum = sorted[i] + sorted[left] + sorted[right]
-      // console.log('sum '+sum)
       if (sum === 0) {
         res.push([sorted[i], sorted[left], sorted[right]])
         left++
-        while (sorted[left] === sorted[left - 1] && left < right) {
-          left++
-        }
-      } else if (sum > 0) {
-        right--
-      } else {
-        left++
-      }
+        while (sorted[left] === sorted[left - 1] && left < right) left++
+      } else if (sum > 0) right--
+      else left++
     }
-    // console.log(`-------------------end ${sorted[i]}-------------------`);
   }
   return res
 }

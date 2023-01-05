@@ -19,7 +19,9 @@ function inorder(root) {
 }
 console.log(isValidBST(toBinaryTree([5, 4, 6, null, null, 3, 7])))
 
-/* Pre order DFS (top-bottom-left-right) */
+/* 
+Pre order DFS (top-bottom-left-right) 
+*/
 function validate(root, low, high) {
   if (root == null) return true
   // left low = null / right high = null
@@ -29,7 +31,7 @@ function validate(root, low, high) {
 }
 
 function isValidBST2(root) {
-  return validate(root, null, null)
+  return validate(root, -Infinity, Infinity)
 }
 
-console.log(isValidBST2(toBinaryTree([5, 4, 6, null, null, 3, 7])))
+console.log(isValidBST2(toBinaryTree([5, 4, 7, null, null, 6, 8])))

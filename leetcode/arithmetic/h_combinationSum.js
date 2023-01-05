@@ -1,23 +1,25 @@
 /* https://leetcode.com/problems/combination-sum/
-Backtracking wihout duplication
+Backtracking wihout duplication 
+same as coin change
 */
-function dfs(res, list, target, i, com, total) {
+function dfs(res, list, target, index, com, total) {
   if (target == total) {
     res.push([...com])
     return
   }
-  if (i >= list.length || total > target) return
+  if (index >= list.length || total > target) return
 
-  com.push(list[i])
-  dfs(res, list, target, i, com, total + list[i])
-  com.pop()
-  // next iteration (like forloop) but with tweaked param
-  // for (let i = 0; i < list.length; i++) {
-  //     com.push(list[i])
-  //     dfs(res, list, com, total)
-  //     com.pop()
-  //   }
-  dfs(res, list, target, i + 1, com, total) // important: i+1 === forloop (let j=i)
+  // com.push(list[i])
+  // dfs(res, list, target, i, com, total + list[i])
+  // com.pop()
+  // dfs(res, list, target, i + 1, com, total) // important: i+1 === forloop (let j=i)
+
+  // next iteration (like forloop) but with tweaked param, This fl cause duplication
+  for (let i = index; i < list.length; i++) {
+    com.push(list[i])
+    dfs(res, list, target, i, com, total + list[i])
+    com.pop()
+  }
 }
 export function combinationSum(list, target) {
   const res = []
@@ -25,4 +27,4 @@ export function combinationSum(list, target) {
   return res
 }
 
-console.log(combinationSum([2, 3, 6, 7], 7))
+console.log(combinationSum([3, 2, 6, 7], 7))

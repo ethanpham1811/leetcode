@@ -80,8 +80,6 @@ const levelOrder = function (root) {
       com = []
     }
   }
-  return res.map((el) => el.map((i) => i.val))
+  return res.map((el) => el.map((el) => el.val))
 }
-console.log(levelOrder(toBinaryTree([1, 2, 3, 4, 5])))
-
-/*  */
+console.log(levelOrder(toBinaryTree([1, 2, 3, 4, 5, 6, 7, 8])))

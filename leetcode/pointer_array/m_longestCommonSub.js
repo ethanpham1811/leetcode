@@ -31,7 +31,7 @@ let longestCommonSubsequence = function (first, second) {
 }
 // console.log(longestCommonSubsequence('bb', 'b'))
 // console.log(longestCommonSubsequence('aaab', 'xxbaaa'))
-console.log(longestCommonSubsequence('abcde', 'ace'))
+console.log(longestCommonSubsequence('abcde', 'acxe'))
 
 /* my recursion approach applied above technique */
 let longestCommonSubsequence2 = function (first, second) {

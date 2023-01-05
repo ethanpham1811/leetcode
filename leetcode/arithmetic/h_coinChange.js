@@ -11,14 +11,14 @@ let coinChange = function (list, target) {
   dp[0] = 0
 
   for (let i = 1; i <= target; i++) {
-    for (const c of list) {
-      if (i - c >= 0) dp[i] = Math.min(dp[i], 1 + dp[i - c])
+    for (const num of list) {
+      if (i - num >= 0) dp[i] = Math.min(dp[i], 1 + dp[i - num])
     }
   }
   console.log(dp)
   return dp[target] !== Infinity ? dp[target] : -1
 }
-console.log(coinChange([1, 3, 4, 5], 7))
+console.log(coinChange([2, 4, 5], 7))
 // console.log(coinChange([2], 3))
 
 /* 
@@ -35,11 +35,13 @@ function dfs(list, res, com, target, total, i) {
     return
   }
   if (i >= list.length || total > target || com == res.val) return
+
+  // this structure same as for loop but short circuit (while loop keep going on)
   com++
   dfs(list, res, com, target, total + list[i], i)
   com--
   dfs(list, res, com, target, total, i + 1)
 }
 // console.log(coinChange2([2], 3))
-// console.log(coinChange2([2, 3, 6, 7], 7))
+console.log(coinChange2([2, 4, 5], 7))
 // console.log(coinChange2([3, 7, 405, 436], 8839))

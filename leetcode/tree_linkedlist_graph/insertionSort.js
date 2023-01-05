@@ -10,9 +10,7 @@ const insertionSortList = function (head) {
     let cur2 = cur
     for (let i = sorted.length - 1; i >= 0; i--) {
       if (cur2.val < sorted[i].val) {
-        const temp = cur2.val
-        cur2.val = sorted[i].val
-        sorted[i].val = temp
+        ;[cur2.val, sorted[i].val] = [sorted[i].val, cur2.val]
         cur2 = sorted[i]
       }
     }

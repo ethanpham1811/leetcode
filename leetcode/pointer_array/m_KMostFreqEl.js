@@ -1,3 +1,4 @@
+//FIXME:
 /* https://leetcode.com/problems/top-k-frequent-elements
 return most frequent number in the array
 BUCKET SORT -> use array to store frequency from 1-nums.length
@@ -9,6 +10,7 @@ let topKFrequent = function (nums, k) {
     if (map.has(n)) map.set(n, map.get(n) + 1)
     else map.set(n, 1)
   }
+  console.log(map)
   for (const pair of map) freq[pair[1]] = [...freq[pair[1]], pair[0]]
 
   let index = nums.length
@@ -20,4 +22,4 @@ let topKFrequent = function (nums, k) {
   }
   return res.slice(0, k)
 }
-console.log(topKFrequent([1, 1, 1, 2, 2, 3], 2))
+console.log(topKFrequent([1, 2, 3, 2, 2, 2, 2, 3, 3, 3, 3], 2))

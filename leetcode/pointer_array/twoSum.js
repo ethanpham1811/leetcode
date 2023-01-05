@@ -38,4 +38,4 @@ function twoSum(num, target) {
   }
   return res
 }
-console.log(twoSum([1, 2, 3, 5, 7, 8, 11], 7))
+console.log(twoSum([11, 2, 5, 7], 9))

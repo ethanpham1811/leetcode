@@ -1,7 +1,7 @@
 /* 
 two pointers
 increase left if left is smaller
-increase right if right is smaller
+decrease right if right is smaller
 */
 let maxArea = function (rows) {
   let res = 0
@@ -9,14 +9,10 @@ let maxArea = function (rows) {
   let right = rows.length - 1
   while (left < right) {
     const area = (right - left) * Math.min(rows[right], rows[left])
-    if (area > res) {
-      res = area
-    }
-    if (rows[left] > rows[right]) {
-      right--
-    } else {
-      left++
-    }
+    if (area > res) res = area
+
+    if (rows[left] > rows[right]) right--
+    else left++
   }
   return res
 }

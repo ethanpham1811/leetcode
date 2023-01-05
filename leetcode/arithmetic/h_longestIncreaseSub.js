@@ -1,5 +1,6 @@
 /* https://leetcode.com/problems/longest-increasing-subsequence/description/
 DP O(1/2.n2)
+key: don't consider smaller following num
 - Same as coinChange, SUBPROBLEM, buildup BOTTOMUP from 7
 - [1, 2, 5, 3, 4] get LIS(4)
 - then LIS(3) = Max(1, LIS(4)) (4>3)
@@ -12,19 +13,28 @@ let lengthOfLIS = function (nums) {
   let res = 0
   let count = totalNum
   while (count >= 0) {
-    const subsequents = count != totalNum ? nums.slice(count).filter((el) => el > nums[count]) : []
+    let subsequents
+    if (count != totalNum) {
+      //consider all the subsequent bigger number, discard all smaller
+      subsequents = nums.slice(count).filter((el) => el > nums[count])
+    } else {
+      subsequents = []
+    }
+
     let maxLength = 1
     for (const sub of subsequents) {
+      // get max from those subsequent nums + 1 (itself)
       maxLength = Math.max(maxLength, 1 + map.get(sub))
     }
     res = Math.max(res, maxLength)
     map.set(nums[count], maxLength)
     count--
   }
+  console.log(map)
 
   return res
 }
-console.log(lengthOfLIS([1, 2, 5, 3, 4]))
+console.log(lengthOfLIS([1, 2, 6, 5, 3, 4]))
 
 /* another js solution Iteration (hard to come up)*/
 let lengthOfLIS3 = function (nums) {

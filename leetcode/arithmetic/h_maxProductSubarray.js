@@ -29,9 +29,9 @@ calculate the product of the whole array
 - move right till minus sign (while divide the product by the right number)
 - get max of these two num
  */
-export const maxProduct = function (nums) {
+export const maxProduct2 = function (nums) {
   if (nums.length === 1) return nums[0]
-  let maxProduct = nums.reduce((acc, cur) => acc * cur, 1)
+  let 2 = nums.reduce((acc, cur) => acc * cur, 1)
   let l = -1
   let r = nums.length
   let leftProduct = maxProduct
@@ -50,7 +50,7 @@ export const maxProduct = function (nums) {
   }
   return maxProduct
 }
-console.log(maxProduct([2, 3, -2, 4]))
+console.log(maxProduct2([2, 3, -2, 4]))
 
 //-1-1
 //-2,2
