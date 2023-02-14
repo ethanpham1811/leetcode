@@ -14,16 +14,14 @@ export const maxProduct = function (nums) {
       ;(min = 1), (max = 1)
       continue
     }
-    let tmpMax = max * n
-    max = Math.max(max * n, min * n, n)
-    min = Math.min(tmpMax, min * n, n)
+    ;[min, max] = [Math.min(max * n, min * n, n), Math.max(max * n, min * n, n)]
     res = Math.max(res, max)
   }
   return res
 }
-console.log(maxProduct([2, 3, -2, 4]))
+console.log(maxProduct([4, 1, -1, 3, -2, 9, -8]))
 
-/* 
+/* my app
 calculate the product of the whole array
 - move left till minus sign (while divide the product by the left number)
 - move right till minus sign (while divide the product by the right number)
@@ -31,7 +29,7 @@ calculate the product of the whole array
  */
 export const maxProduct2 = function (nums) {
   if (nums.length === 1) return nums[0]
-  let 2 = nums.reduce((acc, cur) => acc * cur, 1)
+  let maxProduct = nums.reduce((acc, cur) => acc * cur, 1)
   let l = -1
   let r = nums.length
   let leftProduct = maxProduct

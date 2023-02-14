@@ -1,5 +1,6 @@
 //FIXME:
 /* https://leetcode.com/problems/top-k-frequent-elements
+Space O(n) Time O(n)
 return most frequent number in the array
 BUCKET SORT -> use array to store frequency from 1-nums.length
  */
@@ -22,4 +23,4 @@ let topKFrequent = function (nums, k) {
   }
   return res.slice(0, k)
 }
-console.log(topKFrequent([1, 2, 3, 2, 2, 2, 2, 3, 3, 3, 3], 2))
+console.log(topKFrequent([1, 2, 3, 2, 2, 2, 2, 3, 3, 3, 3], 1))

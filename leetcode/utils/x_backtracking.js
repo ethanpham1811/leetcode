@@ -37,3 +37,7 @@ function backtrack(res, array, permutation, used) {
   }
 }
 console.log(main([10, 1, 2, 7, 6, 1, 5], 8))
+
+
+const a = Array.from({length: 4}, (_, i) => i + 3)
+console.log(a);

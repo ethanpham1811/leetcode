@@ -25,7 +25,6 @@ const dfs = function (preMap, cur, isVisited) {
   return true
 }
 
-// FIXME:
 /* Queue solution:
 - loop through prerequisites, store the degree of the node base on the freq[0]
 - push 0 degree to Queue

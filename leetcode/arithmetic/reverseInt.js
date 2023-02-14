@@ -10,7 +10,8 @@ const reverse = function (x) {
   while (x > 0) {
     const remainder = x % 10
     x = Math.floor(x / 10)
-    if (Math.floor((boundary + Boolean(signed) - remainder) / 10) >= result) {
+
+    if (Math.floor((boundary + signed - remainder) / 10) >= result) {
       result = result * 10 + remainder
     } else {
       return 0

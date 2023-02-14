@@ -4,11 +4,11 @@
 function isPowerOfThree(n) {
   if (n === 0) return true
 
-  while (n % 10 > 0) n /= 3
+  while (n > 1) n /= 3
 
   return n === 1
 }
-const a = 45
+const a = 9
 console.log(a.toString(3))
 
 /* 

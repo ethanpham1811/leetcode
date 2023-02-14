@@ -1,4 +1,3 @@
-// FIXME:
 /* O(3n) + space O(2n) [1, 2, 3, 4]
 - 1 loop for head (store product from left) 
 - 1 loop for tail (store product from right)
@@ -50,3 +49,32 @@ let productExceptSelf2 = function (nums) {
   return res
 }
 console.log(productExceptSelf2([1, 2, 3, 4]))
+
+/* 
+
+*/
+let productExceptSelf3 = function (nums) {
+  const zeroes = []
+  nums.filter((el, i) => {
+    el == 0 && zeroes.push(i)
+    return el == 0
+  })
+  if (zeroes.length > 1) return Array(nums.length).fill(0)
+  else if (zeroes.length == 1) {
+    const maxProd = nums.reduce((acc, cur) => {
+      return cur == 0 ? acc : acc * cur
+    }, 1)
+    const temp = Array(nums.length).fill(0)
+    temp[zeroes[0]] = maxProd
+    return temp
+  } else {
+    const maxProd = nums.reduce((acc, cur) => acc * cur)
+
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] == 0) num[i]
+      nums[i] = maxProd / nums[i]
+    }
+    return nums
+  }
+}
+console.log(productExceptSelf3([0, 2, 3, 4]))

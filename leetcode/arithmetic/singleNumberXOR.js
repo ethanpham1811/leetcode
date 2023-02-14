@@ -2,6 +2,7 @@
  * @param {number[]} list
  * @return {number}
  * A^B = B^A
+ * A^A = 0
  * A^0 = A
  * A^B^B^A = 0
  * A^B^C^B^A = C

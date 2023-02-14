@@ -44,3 +44,10 @@ console.log(mf.small.list, mf.large.list)
 console.log('median ' + mf.findMedian())
 
 // 3 8 13 55 99
+
+// 1 2 30 90
+// nlogn
+//
+
+min 3 2 
+max 4 5

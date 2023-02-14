@@ -99,7 +99,7 @@ heap.add(88)
 heap.add(2)
 heap.add(0)
 heap.shift()
-// console.log(heap)
+console.log(heap)
 
 // const res = []
 // while (heap.list.length != 1) {

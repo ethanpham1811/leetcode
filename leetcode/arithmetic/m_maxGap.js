@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/maximum-gap/
+Key: sort + O(n) = bucket 
   - Bucket sort & Pigeon hole principal
   - The max gap will never be smaller than the average gap (max-min)/(length-1)
   - every num will be distributed in baskets with size 16 [0,1,2,3..16],[17,18...32],....
@@ -12,9 +13,10 @@
 const maximumGap = function (nums) {
   let max = Math.max(...nums)
   let min = Math.min(...nums)
-  let bucketSize = Math.max(1, Math.ceil((max - min) / (nums.length - 1)))
+  let bucketSize = Math.max(1, Math.ceil((max - min) / nums.length))
   let buckets = {}
-  console.log('bucket size: ' + bucketSize)
+  console.log(bucketSize)
+  // console.log('bucket size: ' + bucketSize)
 
   for (const element of nums) {
     let bucketId = Math.floor((element - min) / bucketSize)
@@ -23,7 +25,7 @@ const maximumGap = function (nums) {
       max: Math.max(element, buckets[bucketId] ? buckets[bucketId].max : -Infinity)
     }
   }
-  console.log(buckets)
+  // console.log(buckets)
   let prevBucketMax = min
   let maxGap = 0
   Object.values(buckets).forEach((b) => {
@@ -33,5 +35,18 @@ const maximumGap = function (nums) {
 
   return maxGap
 }
-// console.log(maximumGap([3, 7, 8, 13]))
-console.log(maximumGap([8, 7, 23, 53]))
+console.log(maximumGap([0, 100, 3, 2, 1]))
+console.log(maximumGap([40, 50, 45]))
+console.log(maximumGap([1, 7, 23, 53]))
+
+const maximumGap = function (nums) {
+  if (nums.length < 2) return 0
+  let maxGap = nums[1] > nums[0] ? nums[1] - nums[0] : 0
+
+  for (let i = 2; i < nums.length; i++) {
+    maxGap = Math.max(maxGap, nums[i] - nums[i - 1])
+  }
+  return maxGap
+}
+console.log(maximumGap([1, 100, 3, 2, 1]))
+console.log(maximumGap([1, 7, 23, 53]))

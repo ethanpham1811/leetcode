@@ -18,7 +18,7 @@ let coinChange = function (list, target) {
   console.log(dp)
   return dp[target] !== Infinity ? dp[target] : -1
 }
-console.log(coinChange([4, 5], 11))
+console.log(coinChange([2, 4, 5], 7))
 // console.log(coinChange([2], 3))
 
 /* 

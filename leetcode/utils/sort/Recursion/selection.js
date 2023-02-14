@@ -1,7 +1,7 @@
 /* 
   - Worst, not suitable for big data. 
   - Recursion solution, like buble & insertion
-  - Swap with element to the left
+  - Look for smallest num in the right, and swap with current
   Time: best: O(n) worst: O(n^2)
   Space: O(1)
   STABLE
@@ -19,4 +19,4 @@ export function selectionSort(arr) {
   return arr
 }
 
-console.log(selectionSort([29, 72, 98, 13, 87, 66, 52, 51, 36]))
+console.log(selectionSort([29, 72, 13, 87, 66, 52, 51, 36]))

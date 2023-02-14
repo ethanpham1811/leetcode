@@ -1,23 +1,28 @@
 /* https://leetcode.com/problems/contains-duplicate-iii/
-FIXME:
-bucket
+bucket approach O(n)
+- put numbers to bucket [0-3][3-6][6-9]....
+- if a new number fall in to a preoccupied bucket, return true
+- if a new number and another num from adjacent bucket produce difference <= t, return true
+- every iteration, move window, remove bucket of first number
  */
-const containsNearbyAlmostDuplicate = function (nums, iD, vD) {
-  if (vD < 0) return false
-  const n = nums.length
-  const map = new Map()
-  let bucketSize = vD + 1
-  for (let i = 0; i < n; i++) {
-    let m = getID(nums[i], bucketSize)
-    if (map.has(m)) return true
-    if (map.has(m - 1) && Math.abs(nums[i] - map[m - 1]) < bucketSize) return true
-    if (map.has(m + 1) && Math.abs(nums[i] - map[m + 1]) < bucketSize) return true
-    map[m] = nums[i]
-    if (i >= iD) map.delete(getID(nums[i - vD], bucketSize))
+const containsNearbyAlmostDuplicate2 = function (nums, k, t) {
+  let bucket = {}
+  const bSize = t + 1
+  for (const element of nums) {
+    // get bucket index
+    const bIndex = Math.floor(element / bSize)
+
+    // if bucket already has this index
+    if (bucket[bIndex]) return true
+    // if neighbor bucket & cur bucket difference < bSize
+    else if (bucket[bIndex + 1] && Math.abs(element - bucket[bIndex + 1]) < bSize) return true
+    else if (bucket[bIndex - 1] && Math.abs(element - bucket[bIndex - 1]) < bSize) return true
+
+    // store cur num to bucket
+    bucket[bIndex] = bucket[bIndex] ? [...bucket[bIndex], element] : [element]
+    // if (i >= k) delete bucket[Math.floor(nums[i - k] / bSize)] // remove bucket out of range
   }
   return false
 }
-function getID(num, bucketSize) {
-  return num < 0 ? (num + 1) / bucketSize - 1 : num / bucketSize
-}
-console.log(containsNearbyAlmostDuplicate([1, 2, 3, 1], 3, 0))
+// console.log(containsNearbyAlmostDuplicate2([1, 2, 3, 1], 3, 1))
+console.log(containsNearbyAlmostDuplicate2([1, 5, 9, 1, 3, 9], 2, 3))
