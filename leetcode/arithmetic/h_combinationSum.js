@@ -28,3 +28,31 @@ export function combinationSum(list, target) {
 }
 
 console.log(combinationSum([2, 3, 6, 7], 9))
+
+let NO_OF_CHARS = 256
+function areAnagram(str1, str2) {
+  let count = []
+  for (let i = 0; i < NO_OF_CHARS; i++) count[i] = 0
+  let i = 0
+  while (i < str1.length && i < str2.length) {
+    count[ord(str1[i])] += 1
+    count[ord(str2[i])] -= 1
+    i += 1
+  }
+  if (str1.length != str2.length) return false
+  for (let i = 0; i < NO_OF_CHARS; i++) {
+    if (count[i]) return false
+    return True
+  }
+}
+
+function findAllAnagrams(arr, n) {
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if (areAnagram(arr[i], arr[j])) document.write(arr[i] + 'is anagram of' + arr[j])
+    }
+  }
+}
+let arr = ['geeksquiz', 'geeksforgeeks', 'abcd', 'forgeeksgeeks', 'zuiqkeegs']
+let n = arr.length
+findAllAnagrams(arr, n)
